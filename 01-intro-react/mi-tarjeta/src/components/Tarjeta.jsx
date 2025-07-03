@@ -1,3 +1,5 @@
+import '../styles/tarjeta.css';
+
 function Tarjeta() {
   // Definimos la información estática de la tarjeta
   const nombre = "Lisbeth Nohemi Jimenez Lopez";
@@ -6,11 +8,20 @@ function Tarjeta() {
 
   // Retornamos el JSX que representa la tarjeta
   return (
-    <div style={{ border: '1px solid #ccc', padding: '20px', width: '400px', textAlign: 'center' }}>
-      {/* JSX permite incrustar variables en HTML utilizando llaves {} */}
-      <h2>{nombre}</h2>
-      <h4>{profesion}</h4>
-      <p>{mensaje}</p>
+    <div className="tarjeta-container">
+      <div className="tarjeta">
+        <h2>{nombre}</h2>
+        <h4>{profesion}</h4>
+        <p>{mensaje}</p>
+
+        <div className="tarjeta-info">
+          <p>📧 lj5072354@gmail.com</p>
+          <p>🌐 www.portafolio.dev</p>
+          <p>📞 +52 000 000 0000</p>
+          <p>🧑‍💻 github.com/jimloxc9912</p>
+          <p className="tecnologias">HTML | CSS | JavaScript | React</p>
+        </div>
+      </div>
     </div>
   );
 }

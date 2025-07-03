@@ -1,0 +1,43 @@
+/* tarjeta.css */
+
+.tarjeta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8; /* Fondo general suave */
+  margin: 0;
+  padding: 0;
+}
+
+.tarjeta {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  background-color: #ffffff; /* Fondo de la tarjeta */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.tarjeta h2 {
+  color: #322e69;
+}
+
+.tarjeta h4 {
+  color: #b929ad;
+}
+
+.tarjeta-info {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tarjeta-info p.tecnologias {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2c3e50;
+}
