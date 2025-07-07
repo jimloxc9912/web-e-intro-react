@@ -1,0 +1,83 @@
+/* Estilos generales para toda la página */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+}
+
+/* Centra todo el contenido en la pantalla */
+.tarjeta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Tarjeta principal con sombra y borde redondeado */
+.tarjeta {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Estilos del formulario */
+.formulario {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos de los inputs */
+.formulario input,
+.filtro input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+}
+
+/* Estilo del botón Agregar */
+.formulario button {
+  padding: 0.5rem 1rem;
+  background-color: #322e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.formulario button:hover {
+  background-color: #4d4692;
+}
+
+/* Filtro separado */
+.filtro {
+  margin-bottom: 1rem;
+}
+
+/* Lista de tareas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+li {
+  background-color: #e8eaf6;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+/* Títulos */
+h1, h2, h3 {
+  margin: 0.5rem 0;
+}
