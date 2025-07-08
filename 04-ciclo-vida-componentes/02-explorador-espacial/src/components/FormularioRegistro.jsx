@@ -2,37 +2,45 @@
 import { useState, useEffect } from 'react';
 import '../styles/formulario.css';
 
-function FormularioRegistro({ onGuardar, onCancelar }) {
+function FormularioRegistro({ onGuardar, onCancelar, datosIniciales }) {
   const [nombre, setNombre] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const [imagen, setImagen] = useState(null);
   const [preview, setPreview] = useState(null);
 
   useEffect(() => {
-    if (!imagen) {
-      setPreview(null);
-      return;
+    if (datosIniciales) {
+      setNombre(datosIniciales.nombre || '');
+      setDescripcion(datosIniciales.descripcion || '');
+      setPreview(datosIniciales.imagen || null);
     }
-    const objectUrl = URL.createObjectURL(imagen);
-    setPreview(objectUrl);
+  }, [datosIniciales]);
 
-    // Evitar fugas de memoria
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [imagen]);
+  const manejarImagenChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result); // base64
+        setImagen(reader.result); // base64
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const manejarSubmit = (e) => {
     e.preventDefault();
     const nuevoPlaneta = {
       nombre,
       descripcion,
-      imagen: preview, // usamos el preview generado
+      imagen: imagen || preview, // usa base64 ya cargado
     };
     onGuardar(nuevoPlaneta);
   };
 
   return (
     <form onSubmit={manejarSubmit} className="formulario-planeta">
-      <h2>Registrar Planeta</h2>
+      <h2>{datosIniciales ? "Editar Planeta" : "Registrar Planeta"}</h2>
       <input
         type="text"
         placeholder="Nombre del planeta"
@@ -48,16 +56,14 @@ function FormularioRegistro({ onGuardar, onCancelar }) {
       <input
         type="file"
         accept="image/*"
-        onChange={(e) => setImagen(e.target.files[0])}
+        onChange={manejarImagenChange}
       />
-
       {preview && (
         <div className="preview-contenedor">
           <p>Previsualización:</p>
           <img src={preview} alt="Previsualización" className="preview-imagen" />
         </div>
       )}
-
       <button type="submit">Guardar</button>
       <button type="button" className="cancelar" onClick={onCancelar}>Cancelar</button>
     </form>
