@@ -1,0 +1,122 @@
+.formulario-planeta {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  /* Eliminamos margin para centrar en modal */
+  max-width: 480px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ddd;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-height: 90vh; /* Limita la altura para que no se salga */
+  overflow-y: auto; /* Scroll si es necesario */
+  margin: 0;
+}
+
+.formulario-planeta h2 {
+  font-size: 1.8rem;
+  color: #322e69;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.formulario-planeta input[type="text"],
+.formulario-planeta textarea,
+.formulario-planeta input[type="file"] {
+  width: 90%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #f7f9fc;
+  transition: border 0.2s;
+}
+
+.formulario-planeta input[type="text"]:focus,
+.formulario-planeta textarea:focus {
+  border-color: #322e69;
+  outline: none;
+}
+
+.formulario-planeta textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.formulario-planeta input::file-selector-button {
+  background-color: #b929ad;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background-color 0.3s;
+}
+
+.formulario-planeta input::file-selector-button:hover {
+  background-color: #a02199;
+}
+
+.formulario-planeta button[type="submit"] {
+  background-color: #322e69;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-planeta button[type="submit"]:hover {
+  background-color: #271e55;
+}
+
+.formulario-planeta button.cancelar {
+  background-color: transparent;
+  color: #b929ad; /* Rosa magenta intenso */
+  border: 2px solid #b929ad;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.formulario-planeta button.cancelar:hover {
+  background-color: #b929ad;
+  color: white;
+}
+
+.preview-contenedor {
+  text-align: center;
+}
+
+.preview-contenedor p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.preview-imagen {
+  max-width: 150px; /* Más pequeña */
+  height: auto;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para ventana modal y fondo */
+
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Sobre todo lo demás */
+}
