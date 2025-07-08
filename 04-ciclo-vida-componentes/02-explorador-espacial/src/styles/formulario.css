@@ -83,7 +83,9 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.formulario-planeta button.cancelar:hover {
+
+.formulario-planeta button.cancelar:hover,
+.formulario-planeta button.guardar:hover {
   background-color: #b929ad;
   color: white;
 }

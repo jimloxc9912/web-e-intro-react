@@ -10,7 +10,7 @@ function Bitacora({ planetas, onEliminar, onEditar }) {
 
   return (
     <div className="bitacora">
-      <h2>Bitácora de Planetas</h2>
+      <h2>Bitácora de Exploración</h2>
       {planetas.map((planeta, i) => {
         const estaActivo = planetaActivo === i;
 

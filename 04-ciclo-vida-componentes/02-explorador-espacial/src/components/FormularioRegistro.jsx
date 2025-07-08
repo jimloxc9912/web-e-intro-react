@@ -64,7 +64,7 @@ function FormularioRegistro({ onGuardar, onCancelar, datosIniciales }) {
           <img src={preview} alt="Previsualización" className="preview-imagen" />
         </div>
       )}
-      <button type="submit">Guardar</button>
+      <button type="submit" className="guardar">Guardar</button>
       <button type="button" className="cancelar" onClick={onCancelar}>Cancelar</button>
     </form>
   );
