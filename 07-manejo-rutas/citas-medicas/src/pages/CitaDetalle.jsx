@@ -1,12 +1,15 @@
 import { useParams } from 'react-router-dom';
+import { Typography, Paper } from '@mui/material';
 
 function CitaDetalle() {
   const { id } = useParams();
   return (
-    <div>
-      <h2>Detalles de la Cita</h2>
-      <p>ID de la cita: {id}</p>
-    </div>
+    <Paper sx={{ p: 4 }} elevation={3}>
+      <Typography variant="h5" gutterBottom>
+        Detalles de la Cita
+      </Typography>
+      <Typography>ID de la cita: {id}</Typography>
+    </Paper>
   );
 }
 

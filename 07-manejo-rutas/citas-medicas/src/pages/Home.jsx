@@ -1,9 +1,15 @@
+import { Typography, Paper } from '@mui/material';
+
 function Home() {
   return (
-    <div>
-      <h1>Bienvenido a la Plataforma de Citas Médicas</h1>
-      <p>Gestiona tus citas de manera rápida y eficiente.</p>
-    </div>
+    <Paper sx={{ p: 4 }} elevation={3}>
+      <Typography variant="h4" gutterBottom>
+        Bienvenido a la Plataforma de Citas Médicas
+      </Typography>
+      <Typography>
+        Gestiona tus citas de manera rápida y eficiente.
+      </Typography>
+    </Paper>
   );
 }
 

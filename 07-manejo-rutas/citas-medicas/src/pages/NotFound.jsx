@@ -1,9 +1,15 @@
+import { Typography, Paper } from '@mui/material';
+
 function NotFound() {
   return (
-    <div>
-      <h2>Página no encontrada</h2>
-      <p>Lo sentimos, la ruta que estás buscando no existe.</p>
-    </div>
+    <Paper sx={{ p: 4 }} elevation={3}>
+      <Typography variant="h5" gutterBottom color="error">
+        Página no encontrada
+      </Typography>
+      <Typography>
+        Lo sentimos, la ruta que estás buscando no existe.
+      </Typography>
+    </Paper>
   );
 }
 

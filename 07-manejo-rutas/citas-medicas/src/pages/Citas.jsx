@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Typography, List, ListItem, ListItemText, Paper } from '@mui/material';
 
 const citas = [
   { id: 1, paciente: 'Juan Pérez', fecha: '2025-07-14' },
@@ -7,18 +8,24 @@ const citas = [
 
 function Citas() {
   return (
-    <div>
-      <h2>Listado de Citas</h2>
-      <ul>
-        {citas.map(cita => (
-          <li key={cita.id}>
-            <Link to={`/cita/${cita.id}`}>
-              {cita.paciente} - {cita.fecha}
-            </Link>
-          </li>
+    <Paper sx={{ p: 4 }} elevation={3}>
+      <Typography variant="h5" gutterBottom>
+        Listado de Citas
+      </Typography>
+      <List>
+        {citas.map((cita) => (
+          <ListItem
+            key={cita.id}
+            button
+            component={Link}
+            to={`/cita/${cita.id}`}
+            sx={{ '&:hover': { backgroundColor: '#f3f3f3' } }}
+          >
+            <ListItemText primary={`${cita.paciente} - ${cita.fecha}`} />
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Paper>
   );
 }
 
