@@ -1,13 +1,44 @@
-import Tweet from "./Tweet";
+import { Tweet } from "./Tweet";
 
-const TweetList = ({ tweets, onLike }) => {
+export const TweetList = ({ tweets, onLike }) => (
+  <div>
+    {tweets.map((tweet) => (
+      <Tweet key={tweet.id} tweet={tweet} onLike={onLike} />
+    ))}
+  </div>
+);
+
+// src/context/AuthContext.jsx
+import { createContext, useContext, useState, useEffect } from "react";
+
+const AuthContext = createContext();
+
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+export function AuthProvider({ children }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("auth");
+    if (stored) setIsAuthenticated(JSON.parse(stored));
+  }, []);
+
+  const login = (callback) => {
+    setIsAuthenticated(true);
+    localStorage.setItem("auth", true);
+    callback();
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem("auth");
+  };
+
   return (
-    <div>
-      {tweets.map((tweet) => (
-        <Tweet key={tweet.id} tweet={tweet} onLike={onLike} />
-      ))}
-    </div>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+      {children}
+    </AuthContext.Provider>
   );
-};
-
-export default TweetList;
+}
